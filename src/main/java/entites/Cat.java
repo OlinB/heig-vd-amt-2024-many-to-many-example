@@ -7,10 +7,8 @@ import jakarta.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
 public class Cat {
-
     @Id
     public String name;
 

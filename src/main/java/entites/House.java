@@ -9,7 +9,6 @@ import java.util.List;
 
 @Entity
 public class House {
-
     @Id
     public String owner;
 
