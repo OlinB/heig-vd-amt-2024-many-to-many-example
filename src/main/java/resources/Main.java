@@ -26,12 +26,13 @@ public class Main {
 
         House house1 = new House();
         house1.owner = "Fred";
-        house1.cats.add(cat1);
 
         House house2 = new House();
         house2.owner = "Bob";
-        house2.cats.add(cat1);
-        house2.cats.add(cat2);
+
+        cat2.houses.add(house1);
+        cat2.houses.add(house2);
+        cat1.houses.add(house1);
 
         em.persist(cat1);
         em.persist(cat2);
