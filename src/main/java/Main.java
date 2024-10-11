@@ -2,15 +2,20 @@ import entites.Cat;
 import entites.House;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 
+@Path("/cats")
 public class Main {
 
     @Inject
     EntityManager em;
 
-    public static void main(String[] args) {
-
-        Main main = new Main();
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public  String crazyStuff() {
 
         Cat cat1 = new Cat();
         cat1.name = "Etoile";
@@ -27,12 +32,10 @@ public class Main {
         house2.cats.add(cat1);
         house2.cats.add(cat2);
 
-        System.out.println(house1);
-        System.out.println(house2);
-
-        main.em.persist(cat1);
-        main.em.persist(cat2);
-        main.em.persist(house1);
-        main.em.persist(house2);
+        em.persist(cat1);
+        em.persist(cat2);
+        em.persist(house1);
+        em.persist(house2);
+        return cat1.name;
     }
 }
